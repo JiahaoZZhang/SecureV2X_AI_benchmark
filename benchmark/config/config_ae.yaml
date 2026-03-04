@@ -1,0 +1,8 @@
+model_params:
+  seq_len: 50
+  input_dim: 4
+  latent_dim: 12
+training_params:
+  optimizer: nadam
+  epochs: 10
+  batch_size: 128

@@ -1,0 +1,17 @@
+insert: 
+    random
+
+paramters:
+    positionX:
+        max: 3.0
+        min: 0.0
+    positionY:
+        max: 3.0 
+        min: 0.0
+    VelX:
+        max: 0.0
+        min: 0.0
+    VelY:
+        max: 0.0
+        min: 0.0
+    

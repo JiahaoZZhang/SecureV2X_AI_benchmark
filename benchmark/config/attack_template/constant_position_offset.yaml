@@ -1,0 +1,18 @@
+# attack starting position
+# 'random', at any position of the sequence
+# e.g. '0', at the beginning of the sequence 
+insert: 0
+
+# attack injection mode
+# 'random', chosen a random attack value within each given attribute (random_res <= abs(val))
+# respect the uniform attribution.
+# 'fixed', chosen the given value of each attribute (res = val)
+mode: random
+
+# all modified attributes
+# 'name' should be identical with the name of attacked attribute
+parameters:
+    positionX: 3.0
+    positionY: 3.0
+    VelX: 0.0
+    VelY: 0.0

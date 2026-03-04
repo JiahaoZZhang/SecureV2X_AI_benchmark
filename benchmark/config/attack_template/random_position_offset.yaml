@@ -1,0 +1,23 @@
+# attack starting position
+# 'random', at any position of the sequence
+# e.g. '0', at the beginning of the sequence 
+insert : 
+    0
+
+# all modified attributes
+# 'name' should be identical with the name of attacked attribute
+# the attack respects the gaussian distribution.
+parameters:
+    positionX:
+        mean: 3.0
+        sigma: 1.0
+    positionY:
+        mean: 3.0
+        sigma: 1.0
+    VelX:
+        mean: 0.0
+        sigma: 0.0
+    VelY:
+        mean: 0.0
+        sigma: 0.0
+    
