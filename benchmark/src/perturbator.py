@@ -116,14 +116,6 @@ def piecewise_linear_perturbator(
     return df
 
 
-
-##############################################################################
-# 
-#  Add by Jiahao 
-# 
-##############################################################################
-
-
 # attack type enumeration
 attack_types = {
                 "benign":0,
