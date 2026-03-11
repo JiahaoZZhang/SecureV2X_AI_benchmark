@@ -4,5 +4,5 @@ model_params:
   latent_dim: 12
 training_params:
   optimizer: nadam
-  epochs: 10
+  epochs: 200
   batch_size: 128

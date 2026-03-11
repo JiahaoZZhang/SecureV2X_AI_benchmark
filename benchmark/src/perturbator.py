@@ -116,39 +116,13 @@ def piecewise_linear_perturbator(
     return df
 
 
+
 # attack type enumeration
 attack_types = {
                 "benign":0,
-                "random_poistion_offset":1,
-                "constant_poistion_offset":2
+                "random_position_offset":1,
+                "constant_position_offset":2
                 }
-
-
-# class AttackModel():
-#     def __init__(self,df,cfg,template):
-#         self.df = df.copy()
-#         self.cfg = cfg
-#         self.template = template
-        
-#         if self.cfg['duration'] == 'random':
-#             # 50 length steps
-#             self.cfg['duration'] = np.random.randint(50) 
-        
-        
-#     def inject_attack(self):
-#         new_df = pd.DataFrame()
-#         match self.cfg['type']:
-#             case "random_poistion_offset":
-#                 new_df = random_pos_offset(self.df)
-            
-#             case "constant_poistion_offset":
-#                 new_df = const_pos_offset(self.df)
-            
-#             case _:
-#                 new_df = self.df
-        
-#         return new_df
-
 
 # case random pos offset attack
 def random_pos_offset(
@@ -185,15 +159,32 @@ def random_pos_offset(
         else:
             duration = config_yaml['duration']  
           
-          
+        df_label = np.repeat(attack_types["benign"],len(df))
         for key, val in attack_config['parameters'].items():
             # add noise
             noise = np.random.normal(val['mean'], val['sigma'], size=len(df))
             df_val = df[key].to_numpy()
-            df_val[start:start+duration] = df_val[start:start+duration]+noise[start:start+duration] 
+            
+            if attack_config['constraint'] is not None:
+                c = True
+
+                # combine all contraint conditions
+                for k,v in  attack_config['constraint'].items():
+                    c = c & df[start:start+duration][k].isin(v)
+
+                df_val[start:start+duration][c] = \
+                    df_val[start:start+duration][c] + noise[start:start+duration][c]
+    
+                # change attacked part label
+                df_label[start:start+duration][c] = np.repeat(attack_types[config_yaml['type']],len(df))[start:start+duration][c]
+    
+            else:
+                df_val[start:start+duration] = df_val[start:start+duration] + noise[start:start+duration] 
+                df_label[start:start+duration] = np.repeat(attack_types[config_yaml['type']],len(df))[start:start+duration]
+
             df[key] = df_val
-      
-        df['attacked'] = np.repeat(attack_types[config_yaml['type']],len(df))
+
+        df['attacked'] = df_label
     else:
         df['attacked'] = np.repeat(attack_types["benign"],len(df))
         
@@ -234,7 +225,9 @@ def const_pos_offset(
             duration = np.random.randint(len(df) - start)
         else:
             duration = config_yaml['duration']
-            
+        
+        
+        df_label = np.repeat(attack_types["benign"],len(df))
         for key, val in attack_config['parameters'].items():
             if attack_config['mode'] == 'random':
                 # add a random constant noise
@@ -244,16 +237,33 @@ def const_pos_offset(
                 noise = np.repeat(val,len(df))
                 
             df_val = df[key].to_numpy()
-            df_val[start:start+duration] = df_val[start:start+duration]+noise[start:start+duration] 
+            
+            if attack_config['constraint'] is not None:
+                c = True
+
+                # combine all contraint conditions
+                for k,v in  attack_config['constraint'].items():
+                    c = c & df[start:start+duration][k].isin(v)
+
+                df_val[start:start+duration][c] = \
+                    df_val[start:start+duration][c] + noise[start:start+duration][c]
+    
+                # change attacked part label
+                df_label[start:start+duration] = np.repeat(attack_types[config_yaml['type']],len(df))[start:start+duration][c]
+    
+            else:
+                df_val[start:start+duration] = df_val[start:start+duration] + noise[start:start+duration] 
+                df_label[start:start+duration] = np.repeat(attack_types[config_yaml['type']],len(df))[start:start+duration]
+
             df[key] = df_val
 
-
-        df['attacked'] = np.repeat(attack_types[config_yaml['type']],len(df)) 
+        df['attacked'] = df_label
     else:
         df['attacked'] = np.repeat(attack_types["benign"],len(df))
     
     
     return df 
+
 
 
 

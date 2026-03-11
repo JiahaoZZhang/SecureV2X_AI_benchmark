@@ -1,53 +1,80 @@
 datasets:
   - new_dataset10
 
-validation_config: 
-    # Noisy:
-    #   constraint_selection:
-    #     - - dataset
-    #       - - dataset1_noisy
-    #   constraint_rejection: []
-    # Piecewise:
-    #   constraint_selection:
-    #     - - dataset
-    #       - - dataset1_piecewise
-    #   constraint_rejection: []
-    # Piecewise_on_cat2:
-    #   constraint_selection:
-    #     - - dataset
-    #       - - dataset1_piecewise_on_cat2
-    #   constraint_rejection: []
+validation_config:
+
+    Const_pos_offset_low:
+      constraint_selection:
+        - - dataset
+          - - new_dataset10_const_pos_offset
+      constraint_rejection: []
+
     Random_pos_offset_low:
       constraint_selection:
         - - dataset
           - - new_dataset10_random_pos_offset_low
       constraint_rejection: []
+    
     Random_pos_offset_median:
           constraint_selection:
             - - dataset
               - - new_dataset10_random_pos_offset_median
           constraint_rejection: []
+    
     Random_pos_offset_high:
           constraint_selection:
             - - dataset
               - - new_dataset10_random_pos_offset_high
           constraint_rejection: []
-
+    
+    Random_pos_offset_road_constraint:
+          constraint_selection:
+            - - dataset
+              - - new_dataset10_random_pos_offset_road_constraint
+          constraint_rejection: []
+    
+    Random_pos_offset_randomTime_delay:
+          constraint_selection:
+            - - dataset
+              - - new_dataset10_random_pos_offset_randomTime_delay
+          constraint_rejection: []
 
 
 sets_norm_scale:
-  - r2_set_0
-  - r2_set_1
-  - r2_set_2
-  - r2_set_3
-  - r2_set_4
+  - r1_set_0
+  - r1_set_1
+  - r1_set_2
+  - r1_set_3
+  - r1_set_4
+  # - r2_set_0
+  # - r2_set_1
+  # - r2_set_2
+  # - r2_set_3
+  # - r2_set_4
+  # - set_0
+  # - set_1
+  # - set_2
+  # - set_3
+  # - set_4
+
 
 sets_cv_exp:
-  - r2_set_0
-  - r2_set_1
-  - r2_set_2
-  - r2_set_3
-  - r2_set_4
+  - r1_set_0
+  - r1_set_1
+  - r1_set_2
+  - r1_set_3
+  - r1_set_4
+  # - r2_set_0
+  # - r2_set_1
+  # - r2_set_2
+  # - r2_set_3
+  # - r2_set_4
+  # - set_0
+  # - set_1
+  # - set_2
+  # - set_3
+  # - set_4
+
   
 Components_config:
   DenseAE: config/config_ae.yaml

@@ -1,8 +1,0 @@
-insert: random
-mode: random
-
-parameter:
-    positionX: 0.0
-    positionY: 0.0
-    VelX: 0.0
-    VelY: 0.0

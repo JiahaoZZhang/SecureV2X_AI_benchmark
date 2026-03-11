@@ -5,5 +5,5 @@ model_params:
   kl_weight: 0.02
 training_params:
   optimizer: nadam
-  epochs: 10
+  epochs: 200
   batch_size: 128

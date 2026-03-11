@@ -16,3 +16,12 @@ parameters:
     positionY: 3.0
     VelX: 0.0
     VelY: 0.0
+
+
+# all constraint
+# 'name' should be identical with the name of attacked attribute
+# value: targeted value
+# if no constraint, should be 'null'
+constraint:
+    null
+    # edge: ['-60546312#1','60546311#1','-118438448#1','60546304#0','60546303#0']
