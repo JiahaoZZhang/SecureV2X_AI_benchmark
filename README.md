@@ -126,7 +126,9 @@ jupyter notebook analysis.ipynb
 Install Abench and required dependencies:
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
+pip3 install abench-1.0.5-py3-none-any.whl
+pip3 install uqmodels-1.1.1-py3-none-any.whl
 ```
 > [TODO: list specific dependencies if any, e.g., torch, xgboost, pandas, etc.]
 
