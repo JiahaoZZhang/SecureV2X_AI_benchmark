@@ -11,7 +11,7 @@ This project aims to evaluate and compare machine learning components under repr
 
 ## **Architecture Overview**
 
-![Abench architecture schema](docs/source/Abench_core_new.png)
+![Abench architecture schema](doc/source/Abench_core_new.png)
 
 Abench’s architecture is organized around modular encapsulators:
 
