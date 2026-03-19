@@ -150,6 +150,7 @@ pip3 install uqmodels-1.1.1-py3-none-any.whl
 
 - All Abench results (data, models, outputs, metrics) are automatically stored in the `results/` folder.
 - The project can be extended by defining additional wrappers or metrics in the `src/` directory.
+- Due to the large volume of data and the constraints of the double-blind review process, we provid only a portion of our data in 'benchmark/data/' folder. We will release all the data at a later stage.
 
 ---
 
