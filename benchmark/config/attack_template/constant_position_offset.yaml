@@ -1,13 +1,15 @@
 # attack starting position
 # 'random', at any position of the sequence
 # e.g. '0', at the beginning of the sequence 
-insert: 0
+insert: 
+    0
 
 # attack injection mode
 # 'random', chosen a random attack value within each given attribute (random_res <= abs(val))
 # respect the uniform attribution.
 # 'fixed', chosen the given value of each attribute (res = val)
-mode: random
+mode: 
+    random
 
 # all modified attributes
 # 'name' should be identical with the name of attacked attribute
@@ -25,3 +27,4 @@ parameters:
 constraint:
     null
     # edge: ['-60546312#1','60546311#1','-118438448#1','60546304#0','60546303#0']
+    # edge: ['27437518','1090414504','1090414505','1090414506','1090414507','1090414509','1090414510','1151278799'] 

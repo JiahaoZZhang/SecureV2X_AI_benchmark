@@ -1,79 +1,66 @@
 datasets:
-  - new_dataset10
+  - 20260615_site1
+  - 20260615_site10
 
-validation_config:
-
-    Const_pos_offset_low:
+validation_config: 
+    site10_original:
       constraint_selection:
         - - dataset
-          - - new_dataset10_const_pos_offset
+          - - 20260615_site10
       constraint_rejection: []
 
-    Random_pos_offset_low:
+    site10_Const_pos_offset_low:
       constraint_selection:
         - - dataset
-          - - new_dataset10_random_pos_offset_low
+          - - 20260615_site10_const_pos_offset_low
+      constraint_rejection: []
+
+    site10_Random_pos_offset_low:
+      constraint_selection:
+        - - dataset
+          - - 20260615_site10_random_pos_offset_low
       constraint_rejection: []
     
-    Random_pos_offset_median:
+    site10_Random_pos_offset_median:
           constraint_selection:
             - - dataset
-              - - new_dataset10_random_pos_offset_median
+              - - 20260615_site10_random_pos_offset_median
           constraint_rejection: []
     
-    Random_pos_offset_high:
+    site10_Random_pos_offset_high:
           constraint_selection:
             - - dataset
-              - - new_dataset10_random_pos_offset_high
+              - - 20260615_site10_random_pos_offset_high
           constraint_rejection: []
     
-    Random_pos_offset_road_constraint:
+    site10_Random_pos_offset_road_constraint:
           constraint_selection:
             - - dataset
-              - - new_dataset10_random_pos_offset_road_constraint
+              - - 20260615_site10_random_pos_offset_low_road_constraint
           constraint_rejection: []
     
-    Random_pos_offset_randomTime_delay:
+    site10_Random_pos_offset_randomTime_delay:
           constraint_selection:
             - - dataset
-              - - new_dataset10_random_pos_offset_randomTime_delay
+              - - 20260615_site10_random_pos_offset_low_randomTime_delay
           constraint_rejection: []
+
 
 
 sets_norm_scale:
-  - r1_set_0
-  - r1_set_1
-  - r1_set_2
-  - r1_set_3
-  - r1_set_4
-  # - r2_set_0
-  # - r2_set_1
-  # - r2_set_2
-  # - r2_set_3
-  # - r2_set_4
-  # - set_0
-  # - set_1
-  # - set_2
-  # - set_3
-  # - set_4
+  - r2_set_0
+  - r2_set_1
+  - r2_set_2
+  - r2_set_3
+  - r2_set_4
 
 
 sets_cv_exp:
-  - r1_set_0
-  - r1_set_1
-  - r1_set_2
-  - r1_set_3
-  - r1_set_4
-  # - r2_set_0
-  # - r2_set_1
-  # - r2_set_2
-  # - r2_set_3
-  # - r2_set_4
-  # - set_0
-  # - set_1
-  # - set_2
-  # - set_3
-  # - set_4
+  - r2_set_0
+  - r2_set_1
+  - r2_set_2
+  - r2_set_3
+  - r2_set_4
 
   
 Components_config:
@@ -83,3 +70,8 @@ Components_config:
   ConvVAE: config/config_vae.yaml
   TimeAE: config/config_ae.yaml
   TimeVAE: config/config_vae.yaml
+
+
+context_features:
+  ['id','timestamp','positionX','positionY','positionZ','sizeX','sizeY','sizeZ','VelX','VelY','VelZ','Vel','Class','rot_x','rot_y','edge',
+  'ts','departure','destination','attacked','window','dataset','set','filename','seqId','length','cat_attack','cat_zone','cat_length']

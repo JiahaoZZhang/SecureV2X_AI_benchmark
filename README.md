@@ -1,11 +1,14 @@
-# [TODO: Project / Benchmark Name]
+# CTM Project: Towards An Open Source Benchmarking Framework to Secure V2X Perception In Intersections
+
+## Project Link
+https://www.irt-systemx.fr/en/projet/ctm/
 
 ## 📘 Overview
 
 This project aims to evaluate and compare machine learning components under reproducible, standardized conditions.
 
 **Main objective:**  
-[TODO: briefly describe what is being benchmarked — e.g., time series forecasting models, image classifiers, etc.]
+[AI-based methods benchmarking for misbehavior detection]
 
 ---
 
@@ -115,7 +118,7 @@ sbatch benchmark.slurm
 Open the provided notebook to visualize aggregated metrics:
 
 ```bash
-jupyter notebook analysis.ipynb
+jupyter notebook Analyse_benchmark.ipynb
 ```
 > The notebook demonstrates metric aggregation, visualization, and comparison of model behaviors.
 
@@ -156,11 +159,13 @@ pip3 install uqmodels-1.1.1-py3-none-any.whl
 
 ## 📚 References
 
-> [TODO: reference papers, datasets, or frameworks if relevant]
+> {**IEEE ITSC2026**: *Towards An Open Source Benchmarking Framework to Secure V2X Perception In Intersections*, Zhang et al.}
 
 ---
 
 ## 👤 Author(s)
 
-- **Maintainer:** [TODO: name, email, or GitHub handle]  
+- **Maintainer:** 
+  - Jiahao.ZHANG, jiahao.zhang@irt-systemx.fr  
+  - Kevin.PASINI, kevin,pasini@irt-systemx.fr
 - **Contributors:** [TODO: optional]

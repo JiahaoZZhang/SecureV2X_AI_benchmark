@@ -1,17 +1,17 @@
 # describe the attack type
 # 1. random_position_offset
 # 2. constant_position_offset
-type : constant_position_offset
+type : random_position_offset
 
 # control the attacker rate
 attack_rate : 1.0
 
 # attack configuration detail
-template : ./config/attack_template/constant_position_offset.yaml
+template : ./config/attack_template/random_position_offset.yaml
 
 # the attack duration
 # '-1', the attack is during the entire sequence
 # if duration > chosen sequence length 
 # (including if the attack start position is not at the beginnig)
 # the attack injection length will equal the chosen sequence length 
-duration : -1
+duration : 15

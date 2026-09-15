@@ -116,13 +116,13 @@ def piecewise_linear_perturbator(
     return df
 
 
-
 # attack type enumeration
 attack_types = {
                 "benign":0,
                 "random_position_offset":1,
                 "constant_position_offset":2
                 }
+
 
 # case random pos offset attack
 def random_pos_offset(
@@ -160,6 +160,7 @@ def random_pos_offset(
             duration = config_yaml['duration']  
           
         df_label = np.repeat(attack_types["benign"],len(df))
+        
         for key, val in attack_config['parameters'].items():
             # add noise
             noise = np.random.normal(val['mean'], val['sigma'], size=len(df))
@@ -201,8 +202,9 @@ def const_pos_offset(
     allowed_values: list = None) -> pd.DataFrame:
     
     global attack_types
+
     df = df.copy()
-    
+
     with open(config_yaml['template']) as f:
         attack_config = yaml.safe_load(f)    
     
@@ -218,16 +220,16 @@ def const_pos_offset(
             start = np.random.randint(len(df))
         else:
             start = attack_config['insert']
-            
+          
         if config_yaml['duration'] == -1:
             duration = len(df) - start
         elif config_yaml['duration'] == 'random':
             duration = np.random.randint(len(df) - start)
         else:
-            duration = config_yaml['duration']
-        
-        
+            duration = config_yaml['duration']  
+          
         df_label = np.repeat(attack_types["benign"],len(df))
+
         for key, val in attack_config['parameters'].items():
             if attack_config['mode'] == 'random':
                 # add a random constant noise
@@ -249,7 +251,7 @@ def const_pos_offset(
                     df_val[start:start+duration][c] + noise[start:start+duration][c]
     
                 # change attacked part label
-                df_label[start:start+duration] = np.repeat(attack_types[config_yaml['type']],len(df))[start:start+duration][c]
+                df_label[start:start+duration][c] = np.repeat(attack_types[config_yaml['type']],len(df))[start:start+duration][c]
     
             else:
                 df_val[start:start+duration] = df_val[start:start+duration] + noise[start:start+duration] 
@@ -263,7 +265,6 @@ def const_pos_offset(
     
     
     return df 
-
 
 
 
