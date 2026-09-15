@@ -1,6 +1,6 @@
 # CTM Project: Towards An Open Source Benchmarking Framework to Secure V2X Perception In Intersections
 
-## Project Link
+## CTM Project Link
 https://www.irt-systemx.fr/en/projet/ctm/
 
 ## 📘 Overview
@@ -167,5 +167,5 @@ pip3 install uqmodels-1.1.1-py3-none-any.whl
 
 - **Maintainer:** 
   - Jiahao.ZHANG, jiahao.zhang@irt-systemx.fr  
-  - Kevin.PASINI, kevin,pasini@irt-systemx.fr
+  - Kevin.PASINI, kevin.pasini@irt-systemx.fr
 - **Contributors:** [TODO: optional]
